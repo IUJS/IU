@@ -27,6 +27,7 @@
   "homepage": "https://github.com/IUJS/IU#readme",
   "dependencies": {
     "esbuild": "^0.13.8",
+    "eslint": "^8.0.1",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1"
   },
