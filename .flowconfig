@@ -14,6 +14,7 @@ flow
 # all=off by default
 all=warn
 untyped-type-import=error
+sketchy-null=warn
 sketchy-null-bool=off
 
 [options]
