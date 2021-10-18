@@ -1,0 +1,26 @@
+{
+  "name": "IU",
+  "version": "1.0.0",
+  "description": "IU is a modern client-side JavaScript framework for building Single Page Applications.",
+  "main": "iu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basemax/IUJS/IU.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Max Base",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/IUJS/IU/issues"
+  },
+  "homepage": "https://github.com/IUJS/IU#readme",
+  "dependencies": {
+    "esbuild": "^0.13.8"
+  }
+}
