@@ -5,7 +5,8 @@
   "main": "iu.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+    "check": "flow check"
   },
   "repository": {
     "type": "git",

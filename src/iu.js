@@ -1,3 +1,5 @@
+// @flow
+
 /*
  * @Name: IU JS
  * @Repository: https://github.com/IUJS/IU
@@ -6,3 +8,15 @@
  *
  */
 
+function square(n: number): number {
+  return n * n
+}
+
+square("2")
+
+function concat(a: string, b: string) {
+  return a + b
+}
+
+concat("A", "B")
+concat(1, 2)

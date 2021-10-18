@@ -14,10 +14,9 @@ flow
 # all=off by default
 all=warn
 untyped-type-import=error
-sketchy-null=warn
+# by default: sketchy-null=warn
 sketchy-null-bool=off
 
 [options]
-unsafe.enable_getters_and_setters=true
-# module.name_mapper='^compiler/\(.*\)$' -> '<PROJECT_ROOT>/src/compiler/\1'
-suppress_comment= \\(.\\|\n\\)*\\$flow-disable-line
+# for other directories: module.name_mapper='^compiler/\(.*\)$' -> '<PROJECT_ROOT>/src/compiler/\1'
+# suppress_comment= \\(.\\|\n\\)*\\$flow-disable-line
