@@ -15,7 +15,13 @@ npm run build
 #### Check flow
 
 ```
-npm run check 
+npm run check
+```
+
+#### Flow lint
+
+```
+npm run lint
 ```
 
 #### lint-staged
@@ -24,16 +30,16 @@ npm run check
 npm run test
 ```
 
-#### Lints
+#### Check es-lints
 
 ```
-npm run lint
+npm run eslint
 ```
 
-#### Fix lint errors
+#### Fix es-lint errors
 
 ```
-npm run lint:fix
+npm run eslint:fix
 ```
 
 © Copyright 2021, IU Team
