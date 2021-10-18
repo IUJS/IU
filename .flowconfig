@@ -10,6 +10,12 @@
 [libs]
 flow
 
+[lints]
+# all=off by default
+all=warn
+untyped-type-import=error
+sketchy-null-bool=off
+
 [options]
 unsafe.enable_getters_and_setters=true
 # module.name_mapper='^compiler/\(.*\)$' -> '<PROJECT_ROOT>/src/compiler/\1'
