@@ -8,16 +8,30 @@
  *
  */
 
-function square(n: number): number {
+function square(
+	n: number
+	): number
+
+{
   return n * n
 }
 
-square(10)
+square(
+	10
+)
 // square("2")
 
-function concat(a: string, b: string) {
+function concat(a: string, b: string)
+
+{
   return a + b
 }
 
 concat("A", "B")
 // concat(1, 2)
+
+function test(){
+	// test comment //
+}
+
+var a = "b" // this will yield eslint error

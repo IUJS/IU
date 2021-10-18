@@ -4,9 +4,13 @@
   "description": "IU is a modern client-side JavaScript framework for building Single Page Applications.",
   "main": "iu.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d flow",
-    "check": "flow check"
+    "check": "flow check",
+    "autocomplete": "flow autocomplete",
+    "lint:fix": "eslint src/*.js --fix",
+    "lint": "eslint src/*.js",
+    "test": "lint-staged",
+    "tests": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -22,7 +26,9 @@
   },
   "homepage": "https://github.com/IUJS/IU#readme",
   "dependencies": {
-    "esbuild": "^0.13.8"
+    "esbuild": "^0.13.8",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
