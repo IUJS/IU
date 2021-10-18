@@ -34,4 +34,4 @@ function test(){
 	// test comment //
 }
 
-var a = "b" // this will yield eslint error
+var a = "b"

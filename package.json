@@ -5,12 +5,17 @@
   "main": "iu.js",
   "scripts": {
     "build": "babel src -d flow",
-    "check": "flow check",
-    "autocomplete": "flow autocomplete",
-    "lint:fix": "eslint src/*.js --fix",
-    "lint": "eslint src/*.js",
+
+    "eslint:fix": "eslint src/*.js --fix",
+    "eslint": "eslint src/*.js",
+
     "test": "lint-staged",
-    "tests": "echo \"Error: no test specified\" && exit 1"
+    "tests": "echo \"Error: no test specified\" && exit 1",
+
+    "lint": "flow start --lints \"all=warn, untyped-type-import=error, sketchy-null-bool=off\"",
+    "check": "flow check",
+    "autocomplete": "flow autocomplete"
+
   },
   "repository": {
     "type": "git",
