@@ -2,20 +2,19 @@
   "name": "IU",
   "version": "1.0.0",
   "description": "IU is a modern client-side JavaScript framework for building Single Page Applications.",
-  "main": "iu.js",
+  "main": "build/iu.js",
   "scripts": {
     "build": "babel src -d flow",
-
     "eslint:fix": "eslint src/*.js --fix",
     "eslint": "eslint src/*.js",
-
     "test": "lint-staged",
     "tests": "echo \"Error: no test specified\" && exit 1",
-
     "lint": "flow start --lints \"all=warn, untyped-type-import=error, sketchy-null-bool=off\"",
     "check": "flow check",
-    "autocomplete": "flow autocomplete"
-
+    "autocomplete": "flow autocomplete",
+    "start:watch": "tsc -w",
+    "start:build": "nodemon build/iu.js",
+    "start": "concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
@@ -41,6 +40,9 @@
     "@babel/core": "^7.15.8",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-flow": "^7.14.5",
-    "flow-bin": "^0.162.0"
+    "concurrently": "^6.3.0",
+    "flow-bin": "^0.162.0",
+    "nodemon": "^2.0.13",
+    "typescript": "^4.4.4"
   }
 }
