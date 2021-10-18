@@ -5,6 +5,7 @@
   "main": "iu.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -15,12 +16,18 @@
     "javascript"
   ],
   "author": "Max Base",
-  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/IUJS/IU/issues"
   },
   "homepage": "https://github.com/IUJS/IU#readme",
   "dependencies": {
     "esbuild": "^0.13.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-flow": "^7.14.5",
+    "flow-bin": "^0.162.0"
   }
 }
