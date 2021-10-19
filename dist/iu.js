@@ -6,6 +6,7 @@
  * @Date: 18 Oct, 2021
  *
  */
+Object.defineProperty(exports, "__esModule", { value: true });
 (function () {
     var callbackNodes = function (root, data, element) {
         var _a, _b, _c, _d;

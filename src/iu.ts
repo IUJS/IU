@@ -6,13 +6,17 @@
  *
  */
 
+export {};
+
+declare global {
+  interface Window {
+    ENV: any;
+  }
+}
+
 interface IU {
 	mount(root: Element, data: Array<Tag>): void;
 }
-
-// declare global {
-// 	var iu: IU;
-// }
 
 interface TagAttrs {
 	[key: string]: string; // TODO
@@ -48,7 +52,7 @@ interface Tag {
 			callbackNodes(root, data, null);
 		});
 	};
-	globalThis.iu = {
+	(globalThis as any).iu = {
 		mount: mount
 	};
 })();
