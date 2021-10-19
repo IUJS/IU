@@ -6,8 +6,11 @@
  * @Date: 18 Oct, 2021
  *
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 (function () {
+    var createStyle = function (styles) {
+        console.log(styles);
+        return "";
+    };
     var callbackNodes = function (root, data, element) {
         var _a, _b, _c, _d;
         for (var i in data) {
@@ -33,11 +36,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
     var mount = function (root, data) {
         if (!root)
             return;
-        root.addEventListener("onload", function () {
-            callbackNodes(root, data, null);
-        });
+        callbackNodes(root, data, null);
+        // root.addEventListener("onload", () => {});
     };
     globalThis.iu = {
         mount: mount
     };
 })();
+// declare global {
+//   interface Window {
+//     ENV: any;
+//   }
+// }

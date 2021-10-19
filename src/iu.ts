@@ -6,16 +6,12 @@
  *
  */
 
-export {};
-
-declare global {
-  interface Window {
-    ENV: any;
-  }
-}
-
 interface IU {
 	mount(root: Element, data: Array<Tag>): void;
+}
+
+interface CssProperty {
+	[key: string]: string; // TODO
 }
 
 interface TagAttrs {
@@ -30,6 +26,10 @@ interface Tag {
 }
 
 (function() {
+	const createStyle = (styles: CssProperty): string => {
+		console.log(styles);
+		return "";
+	};
 	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): void => {
 		for (let i in data) {
 			if (data[i].elm) {
@@ -48,15 +48,16 @@ interface Tag {
 	};
 	const mount = (root: Element, data: Array<Tag>): void => {
 		if(!root) return;
-		root.addEventListener("onload", () => {
-			callbackNodes(root, data, null);
-		});
+		callbackNodes(root, data, null);
+		// root.addEventListener("onload", () => {});
 	};
 	(globalThis as any).iu = {
 		mount: mount
 	};
 })();
 
-
-
-
+// declare global {
+//   interface Window {
+//     ENV: any;
+//   }
+// }
