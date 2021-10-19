@@ -6,19 +6,27 @@
  *
  */
 
+interface IU {
+	mount(root: Element, data: Array<Tag>): void;
+}
+
+// declare global {
+// 	var iu: IU;
+// }
+
 interface TagAttrs {
-   [key: string]: string; // TODO
+	[key: string]: string; // TODO
 }
 
 interface Tag {
-    elm: string;
-    text: string;
-    node: Array<Tag>;
-    attr: TagAttrs
+	elm: string;
+	text: string;
+	node: Array<Tag>;
+	attr: TagAttrs
 }
 
 (function() {
-	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): EventListenerOrEventListenerObject => {
+	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): void => {
 		for (let i in data) {
 			if (data[i].elm) {
 				const elm = document.createElement(data[i]?.elm);
@@ -36,8 +44,9 @@ interface Tag {
 	};
 	const mount = (root: Element, data: Array<Tag>): void => {
 		if(!root) return;
-		const dom = callbackNodes(root, data, null);
-		root.addEventListener("onload", dom);
+		root.addEventListener("onload", () => {
+			callbackNodes(root, data, null);
+		});
 	};
 	globalThis.iu = {
 		mount: mount

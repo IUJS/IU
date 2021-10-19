@@ -32,8 +32,9 @@
     var mount = function (root, data) {
         if (!root)
             return;
-        var dom = callbackNodes(root, data, null);
-        root.addEventListener("onload", dom);
+        root.addEventListener("onload", function () {
+            callbackNodes(root, data, null);
+        });
     };
     globalThis.iu = {
         mount: mount
