@@ -7,36 +7,32 @@
  *
  */
 (function () {
-    "use strict";
     var callbackNodes = function (root, data, element) {
-        var _a, _b, _c, _d, _e;
-        var _loop_1 = function (i) {
+        var _a, _b, _c, _d;
+        for (var i in data) {
             if (data[i].elm) {
-                var elm_1 = document.createElement((_a = data[i]) === null || _a === void 0 ? void 0 : _a.elm);
-                (_b = data[i].attr) === null || _b === void 0 ? void 0 : _b.map(function (item) {
-                    var key = Object.keys(item);
-                    key.map(function (t) { return elm_1.setAttribute(t, item[t]); });
-                });
+                var elm = document.createElement((_a = data[i]) === null || _a === void 0 ? void 0 : _a.elm);
+                for (var key in data[i].attr)
+                    elm.setAttribute(key, data[i].attr[key]);
                 if (element)
-                    element.append(elm_1);
+                    element.append(elm);
                 else
-                    root.append(elm_1);
-                if (((_c = data[i]) === null || _c === void 0 ? void 0 : _c.node.length) > 0)
-                    callbackNodes(root, data[i].node, elm_1);
+                    root.append(elm);
+                if (((_b = data[i]) === null || _b === void 0 ? void 0 : _b.node.length) > 0)
+                    callbackNodes(root, data[i].node, elm);
             }
-            else if (((_e = (_d = data[i]) === null || _d === void 0 ? void 0 : _d.text) === null || _e === void 0 ? void 0 : _e.length) > 0) {
+            else if (((_d = (_c = data[i]) === null || _c === void 0 ? void 0 : _c.text) === null || _d === void 0 ? void 0 : _d.length) > 0) {
                 if (!element)
-                    return "continue";
+                    continue;
                 var textNode = document.createTextNode(data[i].text);
                 element.appendChild(textNode);
             }
-        };
-        for (var i in data) {
-            _loop_1(i);
         }
     };
     var mount = function (root, data) {
-        root.addEventListener("onload", callbackNodes(root, data));
+        if (!root)
+            return;
+        root.addEventListener("onload", callbackNodes(root, data), undefined);
     };
     globalThis.iu = {
         mount: mount

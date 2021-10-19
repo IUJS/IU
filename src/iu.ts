@@ -6,16 +6,24 @@
  *
  */
 
+interface TagAttrs {
+   [key: string]: string; // TODO
+}
+
+interface Tag {
+    elm: string;
+    text: string;
+    node: Array<Tag>;
+    attr: TagAttrs
+}
+
 (function() {
-	"use strict";
-	const callbackNodes = (root: Element, data: Array, element: Element): void => {
+	const callbackNodes = (root: Element, data: Array<Tag>, element: Element): void => {
 		for (let i in data) {
 			if (data[i].elm) {
 				const elm = document.createElement(data[i]?.elm);
-				data[i].attr?.map((item) => {
-					const key = Object.keys(item);
-					key.map((t) => elm.setAttribute(t, item[t]));
-				});
+				for (let key in data[i].attr)
+					elm.setAttribute(key, data[i].attr[key])
 				if (element) element.append(elm);
 				else root.append(elm);
 				if (data[i]?.node.length > 0) callbackNodes(root, data[i].node, elm);
@@ -27,7 +35,8 @@
 		}
 	};
 	const mount = (root: Element, data: Object) => {
-		root.addEventListener("onload", callbackNodes(root, data))
+		if(!root) return;
+		root.addEventListener("onload", callbackNodes(root, data), undefined);
 	}
 	globalThis.iu = {
 		mount: mount
