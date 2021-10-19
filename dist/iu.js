@@ -1,5 +1,4 @@
 "use strict";
-// @flow
 /*
  * @Name: IU JS
  * @Repository: https://github.com/IUJS/IU
