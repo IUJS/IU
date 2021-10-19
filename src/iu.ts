@@ -27,15 +27,26 @@ interface Tag {
 
 (function() {
 	const createStyle = (styles: CssProperty): string => {
+		if(styles === {}) return "";
 		console.log(styles);
+		for(const item in styles) {
+			console.log(styles);
+		}
 		return "";
 	};
 	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): void => {
 		for (let i in data) {
 			if (data[i].elm) {
 				const elm = document.createElement(data[i]?.elm);
-				for (let key in data[i].attr)
-					elm.setAttribute(key, data[i].attr[key])
+				for (let key in data[i].attr) {
+					if(key === "style" && typeof data[i].attr[key] === "object") {
+						const value: CssProperty = data[i].attr[key];
+						elm.setAttribute(key, createStyle(value))
+					}
+					else {
+						elm.setAttribute(key, (data[i].attr[key] as string))
+					}
+				}
 				if (element) element.append(elm);
 				else root.append(elm);
 				if (data[i]?.node.length > 0) callbackNodes(root, data[i].node, elm);

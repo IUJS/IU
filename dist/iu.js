@@ -8,7 +8,12 @@
  */
 (function () {
     var createStyle = function (styles) {
+        if (styles === {})
+            return "";
         console.log(styles);
+        for (var item in styles) {
+            console.log(styles);
+        }
         return "";
     };
     var callbackNodes = function (root, data, element) {
@@ -16,8 +21,15 @@
         for (var i in data) {
             if (data[i].elm) {
                 var elm = document.createElement((_a = data[i]) === null || _a === void 0 ? void 0 : _a.elm);
-                for (var key in data[i].attr)
-                    elm.setAttribute(key, data[i].attr[key]);
+                for (var key in data[i].attr) {
+                    if (key === "style" && typeof data[i].attr[key] === "object") {
+                        var value = data[i].attr[key];
+                        elm.setAttribute(key, createStyle(value));
+                    }
+                    else {
+                        elm.setAttribute(key, data[i].attr[key]);
+                    }
+                }
                 if (element)
                     element.append(elm);
                 else
