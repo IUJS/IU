@@ -2,7 +2,7 @@
   "name": "IU",
   "version": "1.0.0",
   "description": "IU is a modern client-side JavaScript framework for building Single Page Applications.",
-  "main": "build/iu.js",
+  "main": "dist/iu.js",
   "scripts": {
     "build": "babel src -d flow",
     "eslint:fix": "eslint src/*.js --fix",
@@ -13,7 +13,7 @@
     "check": "flow check",
     "autocomplete": "flow autocomplete",
     "start:watch": "tsc -w",
-    "start:build": "nodemon build/iu.js",
+    "start:build": "nodemon dist/iu.js",
     "start": "concurrently npm:start:*"
   },
   "repository": {
