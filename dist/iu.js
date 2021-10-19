@@ -11,10 +11,13 @@
         if (styles === {})
             return "";
         console.log(styles);
-        for (var item in styles) {
-            console.log(styles);
+        var res = "";
+        for (var _i = 0, styles_1 = styles; _i < styles_1.length; _i++) {
+            var key = styles_1[_i];
+            console.log(key);
+            res += key + ":" + styles[key] + ";";
         }
-        return "";
+        return rtrim(res, ";"); // TODO: add rtrim
     };
     var callbackNodes = function (root, data, element) {
         var _a, _b, _c, _d;

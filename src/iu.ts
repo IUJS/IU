@@ -29,10 +29,12 @@ interface Tag {
 	const createStyle = (styles: CssProperty): string => {
 		if(styles === {}) return "";
 		console.log(styles);
-		for(const item in styles) {
-			console.log(styles);
+		let res = "";
+		for(const key of styles) {
+			console.log(key);
+			res += `${key}:${styles[key]};`;
 		}
-		return "";
+		return rtrim(res, ";"); // TODO: add rtrim
 	};
 	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): void => {
 		for (let i in data) {
