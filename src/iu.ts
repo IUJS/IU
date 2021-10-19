@@ -18,7 +18,7 @@ interface Tag {
 }
 
 (function() {
-	const callbackNodes = (root: Element, data: Array<Tag>, element: Element): void => {
+	const callbackNodes = (root: Element, data: Array<Tag>, element: Element | null): EventListenerOrEventListenerObject => {
 		for (let i in data) {
 			if (data[i].elm) {
 				const elm = document.createElement(data[i]?.elm);
@@ -34,13 +34,14 @@ interface Tag {
 			}
 		}
 	};
-	const mount = (root: Element, data: Object) => {
+	const mount = (root: Element, data: Array<Tag>): void => {
 		if(!root) return;
-		root.addEventListener("onload", callbackNodes(root, data), undefined);
-	}
+		const dom = callbackNodes(root, data, null);
+		root.addEventListener("onload", dom);
+	};
 	globalThis.iu = {
 		mount: mount
-	}
+	};
 })();
 
 
