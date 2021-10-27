@@ -2,7 +2,22 @@
 
 IUJS is a modern client-side JavaScript framework for building SPAs (Single Page Applications).
 
-> Made with ♥️ by Iranian.
+## Examples
+
+```
+const root = document.body;
+const page = [
+  {
+    param: {
+      style: {
+        "background": "red"
+      },
+    },
+    text: "Hello, World with custom style!"
+  },
+];
+iu.mount(root, page);
+```
 
 ### Development
 
